@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<!-- Page Title Section -->
+<section class="page-title py-5 subtle-pattern">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold" data-aos="fade-up">{{ page.title }}</h1>
+                {% if page.subtitle %}
+                <p class="lead" data-aos="fade-up" data-aos-delay="100">{{ page.subtitle }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-5">
+    {{ content }}
+</div>

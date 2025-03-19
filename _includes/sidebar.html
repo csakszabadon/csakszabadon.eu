@@ -1,0 +1,106 @@
+<!-- Search Widget -->
+<div class="sidebar-widget" data-aos="fade-left">
+    <h4 class="widget-title">Keresés</h4>
+    <div class="input-group">
+        <input type="text" class="form-control" id="search-input" placeholder="Keress a weboldalon...">
+        <button class="btn btn-primary" type="button" id="search-button"><i class="fas fa-search"></i></button>
+    </div>
+    <div id="search-results" class="my-3"></div>
+</div>
+
+{% if page.collection == 'blog' or page.layout == 'post' %}
+<!-- Categories Widget -->
+<div class="sidebar-widget" data-aos="fade-left" data-aos-delay="100">
+    <h4 class="widget-title">Kategóriák</h4>
+    <ul class="category-list list-unstyled">
+        {% assign categories = site.blog | map: "categories" | compact | uniq %}
+        {% for category in categories %}
+        <li>
+            <a href="{{ site.baseurl }}/categories/{{ category | slugify }}/">
+                <span>{{ category }}</span>
+                <span class="count">{{ site.blog | where_exp: "post", "post.categories contains category" | size }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Recent Posts Widget -->
+<div class="sidebar-widget" data-aos="fade-left" data-aos-delay="200">
+    <h4 class="widget-title">Legfrissebb bejegyzések</h4>
+    {% assign recent_posts = site.blog | sort: "date" | reverse | limit: 3 %}
+    {% for post in recent_posts %}
+    <div class="featured-post">
+        {% if post.image %}
+        <a href="{{ post.url }}"><img src="{{ post.image }}" alt="{{ post.title }}" class="img-fluid"></a>
+        {% else %}
+        <a href="{{ post.url }}"><img src="https://picsum.photos/seed/{{ forloop.index | plus: 20 }}/300/150" alt="{{ post.title }}" class="img-fluid"></a>
+        {% endif %}
+        <h6 class="title"><a href="{{ post.url }}" class="text-decoration-none">{{ post.title }}</a></h6>
+        <div class="date"><i class="far fa-calendar-alt me-1"></i> {{ post.date | date: "%Y. %m. %d." }}</div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Tags Widget -->
+<div class="sidebar-widget" data-aos="fade-left" data-aos-delay="300">
+    <h4 class="widget-title">Címkék</h4>
+    <div class="tag-cloud">
+        {% assign tags = site.blog | map: "tags" | compact | uniq %}
+        {% for tag in tags %}
+        <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}/">{{ tag }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Archive Widget -->
+<div class="sidebar-widget" data-aos="fade-left" data-aos-delay="400">
+    <h4 class="widget-title">Archívum</h4>
+    <ul class="list-unstyled">
+        {% assign archive_months = site.blog | map: "date" | group_by_exp: "date", "date | date: '%Y. %B'" | sort: "name" | reverse %}
+        {% for month in archive_months %}
+        <li class="mb-2"><a href="{{ site.baseurl }}/archive/{{ month.name | slugify }}/" class="text-decoration-none">{{ month.name }} ({{ month.items | size }})</a></li>
+        {% endfor %}
+        <li><a href="{{ site.baseurl }}/archive/" class="text-decoration-none">Régebbi bejegyzések</a></li>
+    </ul>
+</div>
+{% endif %}
+
+{% if page.collection == 'helyszin' or page.layout == 'location' %}
+<!-- Location Types Widget -->
+<div class="sidebar-widget" data-aos="fade-left" data-aos-delay="100">
+    <h4 class="widget-title">Helyszín típusok</h4>
+    <ul class="category-list list-unstyled">
+        {% assign types = site.helyszin | map: "type" | compact | uniq %}
+        {% for type in types %}
+        <li>
+            <a href="{{ site.baseurl }}/helyszinek?tipus={{ type | slugify }}/">
+                <span>{{ type | capitalize }}ok</span>
+                <span class="count">{{ site.helyszin | where: "type", type | size }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Featured Locations Widget -->
+<div class="sidebar-widget" data-aos="fade-left" data-aos-delay="200">
+    <h4 class="widget-title">Ajánlott helyszínek</h4>
+    {% assign featured_locations = site.helyszin | where: "beginner_friendly", true | limit: 3 %}
+    {% for location in featured_locations %}
+    <div class="featured-post">
+        {% if location.image %}
+        <a href="{{ location.url }}"><img src="{{ location.image }}" alt="{{ location.title }}" class="img-fluid"></a>
+        {% else %}
+        <a href="{{ location.url }}"><img src="https://picsum.photos/seed/{{ location.slug }}/300/150" alt="{{ location.title }}" class="img-fluid"></a>
+        {% endif %}
+        <h6 class="title"><a href="{{ location.url }}" class="text-decoration-none">{{ location.title }}</a></h6>
+        <div class="info-pill {{ location.type }}"><i class="fas 
+            {% if location.type == 'strand' %}fa-water
+            {% elsif location.type == 'kemping' %}fa-campground
+            {% elsif location.type == 'szauna' %}fa-hot-tub
+            {% else %}fa-spa{% endif %}"></i> {{ location.type | capitalize }}</div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}

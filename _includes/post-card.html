@@ -1,0 +1,13 @@
+<div class="card blog-card h-100">
+    {% if include.post.image %}
+    <img src="{{ include.post.image }}" class="card-img-top" alt="{{ include.post.title }}">
+    {% else %}
+    <img src="https://picsum.photos/seed/{{ include.post.title | slugify }}/400/250" class="card-img-top" alt="{{ include.post.title }}">
+    {% endif %}
+    <div class="card-body">
+        <div class="blog-date">{{ include.post.date | date: "%Y. %m. %d." }}</div>
+        <h5 class="card-title">{{ include.post.title }}</h5>
+        <p class="card-text">{{ include.post.excerpt | truncate: 120 }}</p>
+        <a href="{{ include.post.url }}" class="btn btn-link p-0">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>

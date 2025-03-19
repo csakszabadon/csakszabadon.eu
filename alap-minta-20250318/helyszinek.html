@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helyszínek - Magyar Naturizmus</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-text">Magyar Naturizmus</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Kezdőlap</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="helyszinek.html"><i class="fas fa-map-marker-alt"></i> Helyszínek</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html"><i class="fas fa-newspaper"></i> Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="naturizmusrol.html"><i class="fas fa-info-circle"></i> A naturizmusról</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kapcsolat.html"><i class="fas fa-envelope"></i> Kapcsolat</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Title Section -->
+    <section class="page-title py-5 subtle-pattern">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold" data-aos="fade-up">Naturista helyszínek Magyarországon</h1>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Fedezd fel a naturizmus legszebb hazai helyszíneit!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="location-map" id="mapid" data-aos="fade-up"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="location-filter" data-aos="fade-up">
+                        <h4 class="mb-3">Helyszínek szűrése</h4>
+                        <div class="d-flex flex-wrap">
+                            <button class="btn filter-btn active" data-filter="all">Mind</button>
+                            <button class="btn filter-btn" data-filter="strand"><i class="fas fa-water"></i> Strand</button>
+                            <button class="btn filter-btn" data-filter="kemping"><i class="fas fa-campground"></i> Kemping</button>
+                            <button class="btn filter-btn" data-filter="szauna"><i class="fas fa-hot-tub"></i> Szauna</button>
+                            <button class="btn filter-btn" data-filter="egyeb"><i class="fas fa-spa"></i> Egyéb</button>
+                        </div>
+                        <div class="mt-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Keresés helyszín neve alapján..." id="location-search">
+                                <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations List -->
+    <section class="locations-section py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Location 1 -->
+                <div class="col-12 location-item" data-category="strand">
+                    <div class="card location-large-card" data-aos="fade-up">
+                        <div class="row g-0">
+                            <div class="col-lg-4">
+                                <img src="https://picsum.photos/seed/naturism10/600/400" class="img-fluid location-image" alt="Délegyházi Naturista Strand">
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="info-pill beach"><i class="fas fa-water me-1"></i> Strand</span>
+                                            <span class="info-pill"><i class="fas fa-thumbs-up me-1"></i> Ajánlott kezdőknek</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span class="text-muted ms-1">(4.5)</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-title">Délegyházi Naturista Strand</h3>
+                                    <div class="location-details">
+                                        <span><i class="fas fa-map-marker-alt"></i> Délegyháza, Pest megye</span>
+                                        <span><i class="fas fa-road"></i> Budapest 30 km</span>
+                                        <span><i class="fas fa-tags"></i> Belépő: 2500 Ft-tól</span>
+                                    </div>
+                                    <p class="card-text">Budapesthez közel található híres naturista strand, kristálytiszta tóval, homokos parttal és kellemes, parkosított területtel. A helyszín ideális családok és kezdő naturisták számára egyaránt.</p>
+                                    <div class="mt-3 mb-3">
+                                        <div class="location-feature"><i class="fas fa-parking"></i> Parkolási lehetőség</div>
+                                        <div class="location-feature"><i class="fas fa-utensils"></i> Büfé</div>
+                                        <div class="location-feature"><i class="fas fa-toilet"></i> Mosdók</div>
+                                        <div class="location-feature"><i class="fas fa-shower"></i> Zuhanyzók</div>
+                                        <div class="location-feature"><i class="fas fa-volleyball-ball"></i> Sportpályák</div>
+                                    </div>
+                                    <a href="helyszin-delegyháza.html" class="btn btn-primary">Részletek megtekintése</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Location 2 -->
+                <div class="col-12 location-item" data-category="strand">
+                    <div class="card location-large-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row g-0">
+                            <div class="col-lg-4">
+                                <img src="https://picsum.photos/seed/naturism11/600/400" class="img-fluid location-image" alt="Sziksósfürdő">
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="info-pill beach"><i class="fas fa-water me-1"></i> Strand</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <span class="text-muted ms-1">(4.0)</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-title">Sziksósfürdő</h3>
+                                    <div class="location-details">
+                                        <span><i class="fas fa-map-marker-alt"></i> Szeged közelében, Csongrád-Csanád megye</span>
+                                        <span><i class="fas fa-road"></i> Szeged 12 km</span>
+                                        <span><i class="fas fa-tags"></i> Belépő: 2000 Ft-tól</span>
+                                    </div>
+                                    <p class="card-text">Szeged közelében található naturista strand, füves területekkel és kellemes vízzel. A helyszín könnyen megközelíthető és megfelelő kiszolgáló létesítményekkel rendelkezik.</p>
+                                    <div class="mt-3 mb-3">
+                                        <div class="location-feature"><i class="fas fa-parking"></i> Parkolási lehetőség</div>
+                                        <div class="location-feature"><i class="fas fa-utensils"></i> Büfé</div>
+                                        <div class="location-feature"><i class="fas fa-toilet"></i> Mosdók</div>
+                                        <div class="location-feature"><i class="fas fa-umbrella-beach"></i> Napernyők</div>
+                                    </div>
+                                    <a href="helyszin-sziksosfurdo.html" class="btn btn-primary">Részletek megtekintése</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Location 3 -->
+                <div class="col-12 location-item" data-category="kemping">
+                    <div class="card location-large-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="row g-0">
+                            <div class="col-lg-4">
+                                <img src="https://picsum.photos/seed/naturism12/600/400" class="img-fluid location-image" alt="Bereki Naturista Kemping">
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="info-pill camping"><i class="fas fa-campground me-1"></i> Kemping</span>
+                                            <span class="info-pill"><i class="fas fa-child me-1"></i> Családbarát</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span class="text-muted ms-1">(4.9)</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-title">Bereki Naturista Kemping</h3>
+                                    <div class="location-details">
+                                        <span><i class="fas fa-map-marker-alt"></i> Balatonfenyves, Somogy megye</span>
+                                        <span><i class="fas fa-road"></i> Balaton déli part</span>
+                                        <span><i class="fas fa-tags"></i> Ár: 5000 Ft/éj/főtől</span>
+                                    </div>
+                                    <p class="card-text">Csendes, családias kemping a Balaton déli partján, közvetlen vízparti területtel. Különböző szálláslehetőségekkel, saját partszakasszal és számos kiegészítő szolgáltatással várja a vendégeket.</p>
+                                    <div class="mt-3 mb-3">
+                                        <div class="location-feature"><i class="fas fa-parking"></i> Parkolási lehetőség</div>
+                                        <div class="location-feature"><i class="fas fa-utensils"></i> Étterem</div>
+                                        <div class="location-feature"><i class="fas fa-store"></i> Bolt</div>
+                                        <div class="location-feature"><i class="fas fa-toilet"></i> Mosdók</div>
+                                        <div class="location-feature"><i class="fas fa-shower"></i> Zuhanyzók</div>
+                                        <div class="location-feature"><i class="fas fa-wifi"></i> Wi-Fi</div>
+                                    </div>
+                                    <a href="helyszin-bereki.html" class="btn btn-primary">Részletek megtekintése</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Location 4 -->
+                <div class="col-12 location-item" data-category="szauna">
+                    <div class="card location-large-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="row g-0">
+                            <div class="col-lg-4">
+                                <img src="https://picsum.photos/seed/naturism13/600/400" class="img-fluid location-image" alt="Naturista Szauna Budapest">
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="info-pill sauna"><i class="fas fa-hot-tub me-1"></i> Szauna</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <span class="text-muted ms-1">(4.1)</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-title">Naturista Szauna Budapest</h3>
+                                    <div class="location-details">
+                                        <span><i class="fas fa-map-marker-alt"></i> Budapest XII. kerület</span>
+                                        <span><i class="fas fa-clock"></i> Nyitva: K-V 14:00-22:00</span>
+                                        <span><i class="fas fa-tags"></i> Belépő: 3500 Ft-tól</span>
+                                    </div>
+                                    <p class="card-text">Budapest belvárosában található naturista szauna komplexum, különböző típusú szaunákkal, pihenőterekkel és medencékkel. Tiszta, kulturált környezetben élvezheted a szaunázás jótékony hatásait.</p>
+                                    <div class="mt-3 mb-3">
+                                        <div class="location-feature"><i class="fas fa-hot-tub"></i> Finn szauna</div>
+                                        <div class="location-feature"><i class="fas fa-temperature-low"></i> Infraszauna</div>
+                                        <div class="location-feature"><i class="fas fa-tint"></i> Merülőmedence</div>
+                                        <div class="location-feature"><i class="fas fa-couch"></i> Pihenőtér</div>
+                                        <div class="location-feature"><i class="fas fa-shower"></i> Zuhanyzók</div>
+                                    </div>
+                                    <a href="helyszin-szauna-budapest.html" class="btn btn-primary">Részletek megtekintése</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Location 5 -->
+                <div class="col-12 location-item" data-category="egyeb">
+                    <div class="card location-large-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="row g-0">
+                            <div class="col-lg-4">
+                                <img src="https://picsum.photos/seed/naturism14/600/400" class="img-fluid location-image" alt="Naturista Klub">
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="info-pill other"><i class="fas fa-spa me-1"></i> Klub</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span class="text-muted ms-1">(4.6)</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-title">Naturista Klub és Közösségi Tér</h3>
+                                    <div class="location-details">
+                                        <span><i class="fas fa-map-marker-alt"></i> Budapest, VIII. kerület</span>
+                                        <span><i class="fas fa-clock"></i> Rendezvények szerint</span>
+                                        <span><i class="fas fa-users"></i> Tagsági díj: 10 000 Ft/év</span>
+                                    </div>
+                                    <p class="card-text">Budapest belvárosában található naturista közösségi tér, ahol rendszeres programok és találkozók kerülnek megrendezésre. A klub elsősorban a naturista közösségépítésre és a naturizmus népszerűsítésére összpontosít.</p>
+                                    <div class="mt-3 mb-3">
+                                        <div class="location-feature"><i class="fas fa-calendar-alt"></i> Rendszeres események</div>
+                                        <div class="location-feature"><i class="fas fa-book"></i> Könyvtár</div>
+                                        <div class="location-feature"><i class="fas fa-users"></i> Közösségi programok</div>
+                                        <div class="location-feature"><i class="fas fa-chair"></i> Kényelmes terek</div>
+                                    </div>
+                                    <a href="helyszin-naturista-klub.html" class="btn btn-primary">Részletek megtekintése</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <nav aria-label="Helyszínek lapozása">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Előző</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Következő</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="facilities-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Jellemző szolgáltatások</h2>
+            <div class="row text-center">
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="facility-icon mx-auto">
+                        <i class="fas fa-shower"></i>
+                    </div>
+                    <h5>Zuhanyzók</h5>
+                    <p class="small">A legtöbb helyszínen tiszta, rendezett zuhanyzók találhatók.</p>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="facility-icon mx-auto">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h5>Éttermek, büfék</h5>
+                    <p class="small">Étkezési lehetőségek a kellemes időtöltéshez.</p>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="facility-icon mx-auto">
+                        <i class="fas fa-volleyball-ball"></i>
+                    </div>
+                    <h5>Sportolási lehetőségek</h5>
+                    <p class="small">Sportpályák és aktív időtöltési lehetőségek.</p>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="facility-icon mx-auto">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <h5>Napozóterületek</h5>
+                    <p class="small">Kényelmes napozóterületek a pihenéshez.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help & Tips Section -->
+    <section class="tips-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h2 class="section-title">Segítség kezdő naturistáknak</h2>
+                    <p>Ha most ismerkedsz a naturizmussal, lehet, hogy vannak kérdéseid vagy bizonytalanságaid. Íme néhány hasznos tanács az első látogatásodhoz:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Vigyél magaddal törölközőt, amin ülhetsz</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Használj napvédő krémet</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> A legtöbb helyen van textiles övezet is, ha szükséges</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Ne fényképezz engedély nélkül</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Viselkedj tiszteletteljesen mindenkivel</li>
+                    </ul>
+                    <a href="naturizmusrol.html#kezdoknek" class="btn btn-primary mt-3">További tanácsok kezdőknek <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Gyakori kérdések a helyszínekkel kapcsolatban</h4>
+                            <div class="accordion" id="locationFAQ">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Kell tagságot vásárolni a helyszínek látogatásához?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#locationFAQ">
+                                        <div class="accordion-body">
+                                            A legtöbb naturista strand és kemping látogatása nem igényel tagságot, egyszerűen napi belépőjegyet kell vásárolni. Néhány klub és közösségi tér azonban csak tagság megvásárlásával látogatható. Az adott helyszín leírásánál mindig feltüntetjük a belépési feltételeket.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Mehetnek családok gyerekekkel is?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#locationFAQ">
+                                        <div class="accordion-body">
+                                            Igen, a legtöbb naturista helyszín családbarát és szívesen látja a gyermekes családokat. A naturizmus egyik alapelve a testkép természetes fejlődésének támogatása, így a gyerekek jelenléte teljesen normális. Egyes helyszínek külön gyermekprogramokat és játszótereket is biztosítanak.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            Kötelező mindenhol ruha nélkül lenni?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#locationFAQ">
+                                        <div class="accordion-body">
+                                            A naturista helyszínek többségén a ruhátlanság elvárt, különösen a strandokon és a víz közelében. Azonban sokszor van lehetőség fokozatos átmenetre, és egyes helyszíneken vannak olyan részek, ahol a ruházat megengedett. A konkrét szabályok helyszínenként változhatnak, ezért érdemes a látogatás előtt tájékozódni.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Magyar Naturizmus</h5>
+                    <p>Információs oldal a naturizmusról és a magyar naturista helyszínekről, közösségekről.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Linkek</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Kezdőlap</a></li>
+                        <li class="mb-2"><a href="helyszinek.html" class="footer-link">Helyszínek</a></li>
+                        <li class="mb-2"><a href="blog.html" class="footer-link">Blog</a></li>
+                        <li class="mb-2"><a href="naturizmusrol.html" class="footer-link">A naturizmusról</a></li>
+                        <li><a href="kapcsolat.html" class="footer-link">Kapcsolat</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Helyszínek típusai</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="footer-link">Strandok</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Kempingek</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Szaunák</a></li>
+                        <li><a href="#" class="footer-link">Egyéb helyszínek</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-uppercase mb-4">Kapcsolat</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@csakszabadon.eu</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p>© 2025 Magyar Naturizmus. Minden jog fenntartva.</p>
+                </div>
+                <div class="col-md-5 col-lg-4 text-md-end">
+                    <a href="#" class="text-decoration-none me-4">Adatvédelmi irányelvek</a>
+                    <a href="#" class="text-decoration-none">GYIK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button type="button" class="btn btn-primary btn-floating btn-lg" id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Leaflet JS (csak akkor, ha az oldalon van térkép) -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<!-- Custom JS -->
+<script src="main.js"></script>
+</body>
+</html>

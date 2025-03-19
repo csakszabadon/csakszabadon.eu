@@ -1,0 +1,45 @@
+<footer class="footer py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <h5 class="text-uppercase mb-4">{{ site.title }}</h5>
+                <p>{{ site.description }}</p>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4">Linkek</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="{{ '/' | relative_url }}" class="footer-link">Kezdőlap</a></li>
+                    <li class="mb-2"><a href="{{ '/helyszinek' | relative_url }}" class="footer-link">Helyszínek</a></li>
+                    <li class="mb-2"><a href="{{ '/blog' | relative_url }}" class="footer-link">Blog</a></li>
+                    <li class="mb-2"><a href="{{ '/naturizmusrol' | relative_url }}" class="footer-link">A naturizmusról</a></li>
+                    <li><a href="{{ '/kapcsolat' | relative_url }}" class="footer-link">Kapcsolat</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4">Helyszínek típusai</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="{{ '/helyszinek?tipus=strand' | relative_url }}" class="footer-link">Strandok</a></li>
+                    <li class="mb-2"><a href="{{ '/helyszinek?tipus=kemping' | relative_url }}" class="footer-link">Kempingek</a></li>
+                    <li class="mb-2"><a href="{{ '/helyszinek?tipus=szauna' | relative_url }}" class="footer-link">Szaunák</a></li>
+                    <li><a href="{{ '/helyszinek?tipus=egyeb' | relative_url }}" class="footer-link">Egyéb helyszínek</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-uppercase mb-4">Kapcsolat</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-envelope me-2"></i> {{ site.email }}</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row align-items-center">
+            <div class="col-md-7 col-lg-8">
+                <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. Minden jog fenntartva.</p>
+            </div>
+            <div class="col-md-5 col-lg-4 text-md-end">
+                <a href="{{ '/adatvedelmi-iranyelvek' | relative_url }}" class="text-decoration-none me-4">Adatvédelmi irányelvek</a>
+                <a href="{{ '/gyik' | relative_url }}" class="text-decoration-none">GYIK</a>
+            </div>
+        </div>
+    </div>
+</footer>

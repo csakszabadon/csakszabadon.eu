@@ -1,0 +1,57 @@
+---
+layout: page
+permalink: /categories/:name/
+---
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      {% if page.title %}
+        <h1>{{ page.title }}</h1>
+      {% endif %}
+      
+      {% assign category_name = page.url | split: "/" | last %}
+      <h2>Kategória: {{ category_name | capitalize | replace: "-", " " }}</h2>
+      
+      <div class="category-posts">
+        {% assign category_name_cap = category_name | capitalize %}
+        {% assign filtered_posts = site.blog | where_exp: "post", "post.categories contains category_name or post.categories contains category_name_cap" %}
+        
+        {% for post in filtered_posts %}
+          <div class="blog-post-card" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 50 }}">
+            <div class="row g-0">
+              <div class="col-md-4">
+                {% if post.image %}
+                <img src="{{ post.image }}" class="img-fluid blog-post-image w-100 h-100" alt="{{ post.title }}">
+                {% else %}
+                <img src="https://picsum.photos/seed/naturism{{ forloop.index | plus: 20 }}/600/400" class="img-fluid blog-post-image w-100 h-100" alt="{{ post.title }}">
+                {% endif %}
+              </div>
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <div class="d-flex align-items-center mb-2">
+                    {% if post.categories %}
+                    {% for category in post.categories limit:2 %}
+                    <span class="category-badge {% if forloop.first %}{{ category | slugify }}{% endif %}">{{ category }}</span>
+                    {% endfor %}
+                    {% endif %}
+                  </div>
+                  <h4 class="card-title"><a href="{{ post.url | relative_url }}" class="text-decoration-none">{{ post.title }}</a></h4>
+                  <div class="blog-post-meta">
+                    <span><i class="far fa-calendar-alt"></i> {{ post.date | date: "%Y. %m. %d." }}</span>
+                    <span><i class="far fa-user"></i> {{ post.author }}</span>
+                  </div>
+                  <p class="blog-post-excerpt">{{ post.excerpt }}</p>
+                  <a href="{{ post.url | relative_url }}" class="btn btn-primary btn-sm">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-lg-4">
+      {% include sidebar.html %}
+    </div>
+  </div>
+</div>

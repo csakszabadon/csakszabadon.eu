@@ -1,0 +1,96 @@
+---
+layout: default
+---
+
+<!-- Blog Post Header -->
+<div class="blog-post-header" {% if page.image %}style="background-image: url('{{ page.image }}');"{% endif %}>
+    <div class="blog-post-header-overlay"></div>
+    <div class="container">
+        <div class="blog-post-title">
+            <h1 class="display-4 fw-bold">{{ page.title }}</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Blog Post Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post Metadata -->
+            <div class="blog-post-metadata">
+                <span><i class="far fa-calendar-alt"></i> {{ page.date | date: "%Y. %m. %d." }}</span>
+                <span><i class="far fa-user"></i> {{ page.author }}</span>
+                {% if page.categories %}
+                    <span><i class="far fa-folder"></i> 
+                        {% for category in page.categories %}
+                        <a href="{{ '/categories/' | append: category | slugify | relative_url }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+                        {% endfor %}
+                    </span>
+                {% endif %}
+                {% if page.reading_time %}
+                <span><i class="far fa-clock"></i> {{ page.reading_time }} perc olvasás</span>
+                {% endif %}
+            </div>
+
+            <!-- Post Content -->
+            <article class="blog-post-content">
+                {{ content }}
+            </article>
+
+            <!-- Post Tags -->
+            {% if page.tags %}
+                <div class="blog-post-tags">
+                    {% for tag in page.tags %}
+                    <span class="badge rounded-pill"><a href="{{ '/tags/' | append: tag | slugify | relative_url }}">{{ tag }}</a></span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Author Info -->
+            {% if page.author %}
+            <div class="blog-author">
+                {% if page.author_image %}
+                <img src="{{ page.author_image }}" alt="{{ page.author }}" class="blog-author-image">
+                {% else %}
+                <img src="https://picsum.photos/seed/author1/200/200" alt="{{ page.author }}" class="blog-author-image">
+                {% endif %}
+                <div>
+                    <h5 class="blog-author-name">{{ page.author }}</h5>
+                    <p>{{ page.author_bio }}</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            {% include sidebar.html %}
+        </div>
+    </div>
+</div>
+
+<!-- Related Posts Section -->
+<section class="related-posts py-5 bg-light">
+    <div class="container">
+        <h3 class="related-posts-title">További érdekes bejegyzések</h3>
+        <div class="row">
+            {% assign related_posts = site.blog | sample: 3 %}
+            {% for post in related_posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card related-post-card h-100">
+                    {% if post.image %}
+                    <img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}">
+                    {% else %}
+                    <img class="card-img-top" src="https://picsum.photos/seed/{{ forloop.index | plus: 23 }}/400/250" alt="{{ post.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <div class="small text-muted mb-2">{{ post.date | date: "%Y. %m. %d." }}</div>
+                        <h5 class="card-title"><a href="{{ post.url }}" class="text-decoration-none">{{ post.title }}</a></h5>
+                        <p class="card-text">{{ post.excerpt | truncate: 100 }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

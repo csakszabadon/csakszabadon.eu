@@ -1,0 +1,1290 @@
+/*
+* Magyar Naturizmus - optimalizált stílus fájl
+* Verzió: 2.0
+* Leírás: Letisztított, redundanciáktól mentes CSS a Magyar Naturizmus weboldal számára
+*/
+
+/* ---------- 1. Változók és Alapbeállítások ---------- */
+:root {
+    /* Magyar színek */
+    --magyar-piros: #ce2b37;
+    --magyar-feher: #ffffff;
+    --magyar-zold: #436f4d;
+
+    /* Naturizmus színei - természeti színek */
+    --nat-kek: #5b92e5;
+    --nat-vilagoskek: #b8d8f8;
+    --nat-sotetebb-zold: #2d5c3b;
+    --nat-vilagos-zold: #a8d5ae;
+    --nat-homok: #e8d0a9;
+
+    /* Kevert színek */
+    --primary: #3a6d56;  /* Zöld és kék keveréke */
+    --primary-light: #68a896;
+    --primary-dark: #29584a;
+    --secondary: #ce5b47;  /* Piros árnyalat */
+    --secondary-light: #e8a597;
+    --accent: #f3bc67;  /* Homok és napfény */
+
+    /* Semleges színek */
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --gray: #6c757d;
+    --light-gray: #e9ecef;
+}
+
+/* ---------- 2. Globális Stílusok ---------- */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* Gombok */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+/* Címeket formázó osztály */
+.section-title {
+    position: relative;
+    margin-bottom: 30px;
+    color: var(--primary-dark);
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--nat-vilagos-zold));
+    margin-top: 10px;
+}
+
+.section-title.text-center:after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------- 3. Navigáció és Fejléc ---------- */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--magyar-piros), var(--primary), var(--magyar-zold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--dark) !important;
+    padding: 10px 15px !important;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary) !important;
+    background-color: rgba(58, 109, 86, 0.1);
+}
+
+.nav-link i {
+    margin-right: 5px;
+}
+
+/* ---------- 4. Főoldal Specifikus Stílusok ---------- */
+/* Hero Section */
+section.hero {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    overflow: hidden;
+    background: url('/assets/images/page/hero.jpg') no-repeat center center;
+    /* background-size: cover; */
+    background-position: 0 20%;
+    z-index: 0;
+}
+
+section.hero div.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(41, 88, 74, 0.7) 0%, rgba(91, 146, 229, 0.7) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+section.hero h1 {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1000;
+}
+
+section.hero p, section.hero div.mt-4, section.hero a.btn {
+    position: relative;
+    z-index: 1000;
+}
+
+section.hero p {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* A container, row és col z-indexek egységesítése */
+section.hero div.container.h-100,
+section.hero div.row.h-100,
+section.hero div.col-lg-8.text-white {
+    position: relative;
+    z-index: 2;
+}
+
+/* Intro Section */
+.intro-section {
+    background-color: white;
+}
+
+.intro-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); */
+}
+
+.intro-image-container:before,
+.intro-image-container:after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.intro-image-container:before {
+    top: -10px;
+    right: -10px;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(45deg, var(--nat-vilagoskek), var(--nat-vilagos-zold));
+}
+
+.intro-image-container:after {
+    bottom: -15px;
+    left: -15px;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, var(--magyar-piros), var(--primary));
+}
+
+/* Card Stílusok - Egyesítve */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Lokáció kártya */
+.location-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.location-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.location-type {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: var(--nat-vilagos-zold);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+/* Blog Cards */
+.blog-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+.blog-date {
+    color: var(--gray);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.blog-card .btn-link {
+    color: var(--primary);
+    padding: 0;
+    font-weight: 500;
+}
+
+.blog-card .btn-link:hover {
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+/* Principles Cards */
+.principle-card {
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.principle-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    color: white;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, rgba(41, 88, 74, 0.05) 0%, rgba(91, 146, 229, 0.05) 100%);
+}
+
+.cta-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-card:before,
+.cta-card:after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.cta-card:before {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, var(--nat-vilagos-zold) 0%, var(--nat-vilagoskek) 100%);
+    top: -75px;
+    right: -75px;
+}
+
+.cta-card:after {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--magyar-piros) 0%, var(--secondary) 100%);
+    bottom: -50px;
+    left: -50px;
+}
+
+/* ---------- 5. Helyszínek Oldal Specifikus Stílusok ---------- */
+.location-filter {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: var(--light-gray);
+    color: var(--dark);
+    border: none;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+.filter-btn:hover {
+    background-color: var(--primary-light);
+    color: white;
+}
+
+/* Helyszín-nagy kártya */
+.location-large-card {
+    margin-bottom: 30px;
+}
+
+.location-image {
+    height: 250px;
+    object-fit: cover;
+}
+
+.location-details {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin: 15px 0;
+}
+
+.location-details span {
+    margin-right: 20px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.location-details i {
+    margin-right: 5px;
+    color: var(--primary);
+}
+
+/* Információs elemek */
+.info-pill {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: var(--light-gray);
+}
+
+.info-pill.beach, .info-pill.strand {
+    background-color: var(--nat-vilagoskek);
+    color: var(--dark);
+}
+
+.info-pill.camping, .info-pill.kemping {
+    background-color: var(--nat-vilagos-zold);
+    color: var(--dark);
+}
+
+.info-pill.sauna, .info-pill.szauna {
+    background-color: var(--secondary-light);
+    color: var(--dark);
+}
+
+.info-pill.other, .info-pill.egyeb {
+    background-color: var(--accent);
+    color: var(--dark);
+}
+
+.rating {
+    color: #ffc107;
+}
+
+.location-feature {
+    margin-right: 15px;
+    margin-bottom: 8px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.location-feature i {
+    color: var(--primary);
+    margin-right: 5px;
+}
+
+.facility-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(58, 109, 86, 0.1);
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.facility-icon i {
+    color: var(--primary);
+}
+
+/* ---------- 6. Blog Specifikus Stílusok ---------- */
+/* Blog Header */
+.blog-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--nat-kek) 100%);
+    padding: 100px 0;
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Blog Post kártya és meta elemek */
+.blog-post-card {
+    margin-bottom: 30px;
+}
+
+.blog-post-image {
+    height: 220px;
+    object-fit: cover;
+}
+
+.blog-post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+.blog-post-meta span {
+    margin-right: 15px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.blog-post-meta i {
+    margin-right: 5px;
+    color: var(--primary);
+}
+
+.blog-post-excerpt {
+    color: var(--dark);
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+/* Kategória jelzések */
+.category-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: var(--light-gray);
+    color: var(--dark);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.category-badge.history,
+.category-badge.történelem {
+    background-color: rgba(91, 146, 229, 0.2);
+    color: var(--nat-kek);
+}
+
+.category-badge.events,
+.category-badge.rendezvények,
+.category-badge.programok {
+    background-color: rgba(206, 91, 71, 0.2);
+    color: var(--secondary);
+}
+
+.category-badge.guides,
+.category-badge.naturizmus {
+    background-color: rgba(58, 109, 86, 0.2);
+    color: var(--primary);
+}
+
+.category-badge.interviews {
+    background-color: rgba(243, 188, 103, 0.2);
+    color: var(--accent);
+}
+
+/* Oldalsáv */
+.sidebar-widget {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.widget-title {
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.widget-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--nat-vilagos-zold));
+}
+
+.category-list li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.category-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.category-list a {
+    display: flex;
+    justify-content: space-between;
+    color: var(--dark);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.category-list a:hover {
+    color: var(--primary);
+}
+
+.category-list .count {
+    background-color: var(--light-gray);
+    color: var(--gray);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+}
+
+.featured-post {
+    margin-bottom: 20px;
+}
+
+.featured-post img {
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.featured-post .title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.featured-post .date {
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag-cloud a {
+    display: inline-block;
+    padding: 5px 12px;
+    margin: 0 8px 8px 0;
+    background-color: var(--light-gray);
+    color: var(--dark);
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+
+.tag-cloud a:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* ---------- 7. Blog Bejegyzés Specifikus Stílusok ---------- */
+.blog-post-header {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    background: url('https://picsum.photos/seed/naturism20/1920/1080') no-repeat center center;
+    background-size: cover;
+    margin-bottom: 2rem;
+}
+
+.blog-post-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+.blog-post-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    color: white;
+}
+
+.blog-post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.blog-post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.blog-post-content h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.blog-post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post-content .image-caption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-top: -1.5rem;
+    margin-bottom: 2rem;
+}
+
+.blog-post-tags {
+    margin: 2rem 0;
+}
+
+.blog-post-tags .badge {
+    background-color: var(--light-gray);
+    color: var(--dark);
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.blog-author {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--light);
+    border-radius: 10px;
+    margin: 3rem 0;
+}
+
+.blog-author-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    object-fit: cover;
+}
+
+.blog-author-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.related-posts-title {
+    margin-bottom: 2rem;
+}
+
+.related-post-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Eseménynaptár */
+.event-card {
+    margin-bottom: 1.5rem;
+}
+
+.event-date {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-right: 1.5rem;
+    padding: 10px;
+    text-align: center;
+}
+
+.event-date .month {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.event-date .day {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.event-details {
+    flex: 1;
+}
+
+.event-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.event-location {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.event-location i {
+    margin-right: 0.5rem;
+    color: var(--primary);
+}
+
+.event-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: rgba(58, 109, 86, 0.1);
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 10px;
+}
+
+/* ---------- 8. A Naturizmusról Oldal Specifikus Stílusok ---------- */
+.header-naturismus {
+    background: linear-gradient(135deg, rgba(67, 111, 77, 0.9) 0%, rgba(91, 146, 229, 0.9) 100%), url('https://picsum.photos/seed/naturism30/1920/1080') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.principles-section, .content-section {
+    padding: 80px 0;
+}
+
+.content-section h2 {
+    margin-bottom: 30px;
+}
+
+.content-section p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.content-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.content-image img {
+    width: 100%;
+    height: auto;
+    transition: all 0.5s ease;
+}
+
+.content-image:hover img {
+    transform: scale(1.05);
+}
+
+.quote-section {
+    background-color: var(--light);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-container {
+    position: relative;
+    z-index: 2;
+}
+
+.quote-section::before {
+    content: '\201C';
+    position: absolute;
+    top: -50px;
+    left: 30px;
+    font-size: 300px;
+    font-family: Georgia, serif;
+    color: rgba(58, 109, 86, 0.1);
+    z-index: 1;
+}
+
+.quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--dark);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.quote-author {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* Accordion FAQ */
+.accordion-item {
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-button {
+    padding: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--primary);
+    background-color: rgba(58, 109, 86, 0.05);
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(58, 109, 86, 0.1);
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233a6d56'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-body {
+    padding: 20px;
+    background-color: white;
+}
+
+/* Kezdőknek-tippek szekció */
+.beginners-section {
+    padding: 80px 0;
+    background-color: var(--light);
+}
+
+.tip-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    height: 100%;
+    transition: all 0.3s;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.tip-icon {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    background-color: rgba(58, 109, 86, 0.1);
+    color: var(--primary);
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.tip-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+/* ---------- 9. Kapcsolat Oldal Specifikus Stílusok ---------- */
+.contact-header {
+    background: linear-gradient(135deg, rgba(58, 109, 86, 0.9) 0%, rgba(91, 146, 229, 0.9) 100%), url('https://picsum.photos/seed/naturism35/1920/1080') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-info-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    color: white;
+    border-radius: 50%;
+    font-size: 28px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    margin-bottom: 50px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid var(--light-gray);
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary);
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--dark);
+}
+
+.contact-map {
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 50px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-gray);
+    color: var(--dark);
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.faq-link-card {
+    background-color: var(--light);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    height: 100%;
+}
+
+.faq-link-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.faq-icon {
+    font-size: 40px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* ---------- 10. Közös Komponensek Stílusai ---------- */
+/* Footer */
+.footer {
+    background-color: var(--dark);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer h5 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* Back to Top Button */
+#btn-back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    z-index: 99;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#btn-back-to-top:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    padding: 60px 0;
+}
+
+/* Page Title */
+.page-title {
+    padding: 80px 0;
+    background-color: var(--light);
+    margin-bottom: 50px;
+}
+
+/* ---------- 11. Segédosztályok és Effektek ---------- */
+/* Animations & Effects */
+.card, .btn, a, .principle-card {
+    transition: all 0.3s ease-in-out;
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(90deg, var(--primary), var(--nat-kek));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Magyar themed gradients */
+.magyar-gradient {
+    background: linear-gradient(135deg, var(--magyar-piros), var(--magyar-zold));
+}
+
+.naturizmus-gradient {
+    background: linear-gradient(135deg, var(--nat-sotetebb-zold), var(--nat-kek));
+}
+
+/* Subtle patterns */
+.subtle-pattern {
+    background-color: var(--light);
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233a6d56' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ---------- 12. Reszponzív Stílusok ---------- */
+@media (max-width: 1199.98px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .event-date {
+        width: 70px;
+        height: 70px;
+    }
+
+    .event-date .day {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .hero {
+        height: 60vh;
+    }
+
+    .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .content-section {
+        padding: 60px 0;
+    }
+
+    .blog-post-metadata {
+        flex-direction: column;
+    }
+
+    .blog-post-metadata span {
+        margin-bottom: 5px;
+    }
+
+    .location-details {
+        flex-wrap: wrap;
+    }
+
+    .location-details span {
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .hero {
+        height: 50vh;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .blog-post-title h1 {
+        font-size: 2rem;
+    }
+
+    .blog-author {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .blog-author-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .event-card .card-body {
+        flex-direction: column;
+    }
+
+    .event-date {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .contact-info-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero {
+        min-height: 400px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .principle-icon {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 24px;
+    }
+
+    .footer h5 {
+        margin-top: 20px;
+    }
+
+    .blog-post-header {
+        min-height: 300px;
+    }
+
+    .quote {
+        font-size: 1.2rem;
+    }
+}

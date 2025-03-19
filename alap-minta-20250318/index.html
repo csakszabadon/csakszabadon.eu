@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magyar Naturizmus - Kezdőlap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-text">Magyar Naturizmus</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html"><i class="fas fa-home"></i> Kezdőlap</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="helyszinek.html"><i class="fas fa-map-marker-alt"></i> Helyszínek</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html"><i class="fas fa-newspaper"></i> Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="naturizmusrol.html"><i class="fas fa-info-circle"></i> A naturizmusról</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kapcsolat.html"><i class="fas fa-envelope"></i> Kapcsolat</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-8 text-white" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="display-4 fw-bold">Fedezd fel a naturizmust Magyarországon</h1>
+                    <p class="lead">Szabadság, tisztelet és természetközeliség - Ismerd meg a magyar naturista helyszíneket és közösségeket</p>
+                    <div class="mt-4">
+                        <a href="helyszinek.html" class="btn btn-primary btn-lg me-3"><i class="fas fa-map-marked-alt"></i> Helyszínek felfedezése</a>
+                        <a href="naturizmusrol.html" class="btn btn-outline-light btn-lg"><i class="fas fa-info-circle"></i> Tudj meg többet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="section-title">Mi a naturizmus?</h2>
+                    <p>A naturizmus egy életmód, amely a meztelen közös időtöltésen alapul, és célja az önelfogadás, a mások iránti tisztelet, valamint a természettel való harmónia megteremtése.</p>
+                    <p>A naturista életmód a test és az elme szabadságát hirdeti, valamint az előítéletektől mentes, tiszteletteljes emberi kapcsolatok fontosságát hangsúlyozza.</p>
+                    <a href="naturizmusrol.html" class="btn btn-outline-primary mt-3">Bővebben a naturizmusról <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="intro-image-container">
+                        <img src="https://picsum.photos/seed/naturism1/600/400" alt="Naturizmus Magyarországon" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Locations -->
+    <section class="featured-locations py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Népszerű helyszínek</h2>
+            <div class="row">
+                <!-- Location 1 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card location-card h-100">
+                        <img src="https://picsum.photos/seed/naturism2/400/300" class="card-img-top" alt="Délegyházi Naturista Strand">
+                        <div class="card-body">
+                            <div class="location-type">Strand</div>
+                            <h5 class="card-title">Délegyházi Naturista Strand</h5>
+                            <p class="card-text">Budapest közelében található népszerű naturista strand, kristálytiszta tóval, homokos parttal.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Részletek <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Location 2 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card location-card h-100">
+                        <img src="https://picsum.photos/seed/naturism3/400/300" class="card-img-top" alt="Sziksósfürdő">
+                        <div class="card-body">
+                            <div class="location-type">Strand</div>
+                            <h5 class="card-title">Sziksósfürdő</h5>
+                            <p class="card-text">Szeged közelében található naturista strand, füves területekkel és kellemes vízzel.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Részletek <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Location 3 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card location-card h-100">
+                        <img src="https://picsum.photos/seed/naturism4/400/300" class="card-img-top" alt="Bereki Naturista Kemping">
+                        <div class="card-body">
+                            <div class="location-type">Kemping</div>
+                            <h5 class="card-title">Bereki Naturista Kemping</h5>
+                            <p class="card-text">Csendes, családias kemping a Balaton déli partján, közvetlen vízparti területtel.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Részletek <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="helyszinek.html" class="btn btn-primary">Összes helyszín megtekintése <i class="fas fa-list"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Blog Posts -->
+    <section class="recent-posts py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">Friss hírek, blogbejegyzések</h2>
+            <div class="row">
+                <!-- Blog Post 1 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card blog-card h-100">
+                        <img src="https://picsum.photos/seed/naturism5/400/250" class="card-img-top" alt="Blog bejegyzés kép">
+                        <div class="card-body">
+                            <div class="blog-date">2025. március 15.</div>
+                            <h5 class="card-title">A magyar naturizmus története</h5>
+                            <p class="card-text">A naturizmus magyarországi története mintegy 80 évre nyúlik vissza. Ismerj meg néhány érdekes mérföldkövet!</p>
+                            <a href="#" class="btn btn-link p-0">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Post 2 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card blog-card h-100">
+                        <img src="https://picsum.photos/seed/naturism6/400/250" class="card-img-top" alt="Blog bejegyzés kép">
+                        <div class="card-body">
+                            <div class="blog-date">2025. március 10.</div>
+                            <h5 class="card-title">Naturista rendezvények 2025-ben</h5>
+                            <p class="card-text">Összegyűjtöttük az idei év legfontosabb hazai és nemzetközi naturista eseményeit.</p>
+                            <a href="#" class="btn btn-link p-0">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Post 3 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card blog-card h-100">
+                        <img src="https://picsum.photos/seed/naturism7/400/250" class="card-img-top" alt="Blog bejegyzés kép">
+                        <div class="card-body">
+                            <div class="blog-date">2025. március 1.</div>
+                            <h5 class="card-title">Kezdőknek: Így indulj el a naturista úton</h5>
+                            <p class="card-text">Hasznos tanácsok, tippek és gondolatok azoknak, akik most ismerkednek a naturizmussal.</p>
+                            <a href="#" class="btn btn-link p-0">Tovább olvasom <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="blog.html" class="btn btn-primary">Összes blogbejegyzés <i class="fas fa-newspaper"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles Section -->
+    <section class="principles-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">A naturizmus alapelvei</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="principle-card text-center">
+                        <div class="principle-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Természetközeliség</h4>
+                        <p>A természettel való harmónia és a környezet tisztelete a naturizmus egyik alapértéke.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="principle-card text-center">
+                        <div class="principle-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Önelfogadás</h4>
+                        <p>A saját test elfogadása és a természetes emberi test szépségének értékelése.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="principle-card text-center">
+                        <div class="principle-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Tisztelet</h4>
+                        <p>Egymás feltétel nélküli tisztelete, előítéletek és megítélés nélkül.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="principle-card text-center">
+                        <div class="principle-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Közösség</h4>
+                        <p>Befogadó közösségek építése, ahol mindenki egyenlő és értékes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="cta-card text-center p-5" data-aos="zoom-in">
+                        <h2 class="mb-4">Fedezd fel a naturizmust!</h2>
+                        <p class="lead mb-4">Ismerd meg a magyar naturista helyszíneket, közösségeket és eseményeket. Indulj el egy új, természetközelibb életmód felé!</p>
+                        <div>
+                            <a href="helyszinek.html" class="btn btn-primary btn-lg me-3">Helyszínek felfedezése</a>
+                            <a href="naturizmusrol.html" class="btn btn-outline-primary btn-lg">A naturizmusról bővebben</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Magyar Naturizmus</h5>
+                    <p>Információs oldal a naturizmusról és a magyar naturista helyszínekről, közösségekről.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Linkek</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Kezdőlap</a></li>
+                        <li class="mb-2"><a href="helyszinek.html" class="footer-link">Helyszínek</a></li>
+                        <li class="mb-2"><a href="blog.html" class="footer-link">Blog</a></li>
+                        <li class="mb-2"><a href="naturizmusrol.html" class="footer-link">A naturizmusról</a></li>
+                        <li><a href="kapcsolat.html" class="footer-link">Kapcsolat</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Helyszínek típusai</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="footer-link">Strandok</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Kempingek</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Szaunák</a></li>
+                        <li><a href="#" class="footer-link">Egyéb helyszínek</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-uppercase mb-4">Kapcsolat</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@csakszabadon.eu</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p>© 2025 Magyar Naturizmus. Minden jog fenntartva.</p>
+                </div>
+                <div class="col-md-5 col-lg-4 text-md-end">
+                    <a href="#" class="text-decoration-none me-4">Adatvédelmi irányelvek</a>
+                    <a href="#" class="text-decoration-none">GYIK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button type="button" class="btn btn-primary btn-floating btn-lg" id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Leaflet JS (csak akkor, ha az oldalon van térkép) -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<!-- Custom JS -->
+<script src="main.js"></script>
+</body>
+</html>

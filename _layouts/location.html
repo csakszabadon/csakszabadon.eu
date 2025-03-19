@@ -1,0 +1,136 @@
+---
+layout: default
+---
+
+<!-- Page Title Section -->
+<section class="page-title py-5 subtle-pattern">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold">{{ page.title }}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Location Details -->
+<section class="locations-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card location-large-card">
+                    <div class="row g-0">
+                        <div class="col-lg-4">
+                            {% if page.image %}
+                            <img src="{{ page.image }}" class="img-fluid location-image" alt="{{ page.title }}">
+                            {% else %}
+                            <img src="https://picsum.photos/seed/{{ page.slug }}/600/400" class="img-fluid location-image" alt="{{ page.title }}">
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <span class="info-pill {{ page.type }}"><i class="fas 
+                                            {% if page.type == 'strand' %}fa-water
+                                            {% elsif page.type == 'kemping' %}fa-campground
+                                            {% elsif page.type == 'szauna' %}fa-hot-tub
+                                            {% else %}fa-spa{% endif %} me-1"></i> 
+                                            {{ page.type | capitalize }}</span>
+                                        {% if page.beginner_friendly %}
+                                        <span class="info-pill"><i class="fas fa-thumbs-up me-1"></i> Ajánlott kezdőknek</span>
+                                        {% endif %}
+                                    </div>
+                                    <div class="rating">
+                                        {% assign whole_stars = page.rating | floor %}
+                                        {% assign fraction = page.rating | minus: whole_stars %}
+                                        {% assign next_star = whole_stars | plus: 1 %}
+                                        {% for i in (1..5) %}
+                                            {% if i <= whole_stars %}
+                                            <i class="fas fa-star"></i>
+                                            {% elsif fraction >= 0.5 and i == next_star %}
+                                            <i class="fas fa-star-half-alt"></i>
+                                            {% else %}
+                                            <i class="far fa-star"></i>
+                                            {% endif %}
+                                        {% endfor %}
+                                        <span class="text-muted ms-1">({{ page.rating }})</span>
+                                    </div>
+                                </div>
+                                <h3 class="card-title">{{ page.title }}</h3>
+                                <div class="location-details">
+                                    <span><i class="fas fa-map-marker-alt"></i> {{ page.location }}</span>
+                                    <span><i class="fas fa-road"></i> {{ page.distance }}</span>
+                                    <span><i class="fas fa-tags"></i> {{ page.price }}</span>
+                                </div>
+                                <p class="card-text">{{ page.description }}</p>
+                                <div class="mt-3 mb-3">
+                                    {% for feature in page.features %}
+                                    <div class="location-feature">
+                                        <i class="fas 
+                                        {% if feature == 'parking' %}fa-parking
+                                        {% elsif feature == 'buffet' %}fa-utensils
+                                        {% elsif feature == 'toilets' %}fa-toilet
+                                        {% elsif feature == 'showers' %}fa-shower
+                                        {% elsif feature == 'sports' %}fa-volleyball-ball
+                                        {% elsif feature == 'umbrellas' %}fa-umbrella-beach
+                                        {% elsif feature == 'wifi' %}fa-wifi
+                                        {% elsif feature == 'restaurant' %}fa-utensils
+                                        {% elsif feature == 'store' %}fa-store
+                                        {% else %}fa-check{% endif %}"></i> 
+                                        {% if feature == 'parking' %}Parkolási lehetőség
+                                        {% elsif feature == 'buffet' %}Büfé
+                                        {% elsif feature == 'toilets' %}Mosdók
+                                        {% elsif feature == 'showers' %}Zuhanyzók
+                                        {% elsif feature == 'sports' %}Sportpályák
+                                        {% elsif feature == 'umbrellas' %}Napernyők
+                                        {% elsif feature == 'wifi' %}Wi-Fi
+                                        {% elsif feature == 'restaurant' %}Étterem
+                                        {% elsif feature == 'store' %}Bolt
+                                        {% else %}{{ feature }}{% endif %}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Static Map Image Instead of Dynamic Map -->
+<section class="map-section py-4">
+    <div class="container">
+        <h3 class="mb-4">Helyszín a térképen</h3>
+        <div class="static-map-container">
+            <!-- Static map from OpenStreetMap -->
+            <img src="https://staticmap.openstreetmap.de/staticmap.php?center={{ page.coords.lat }},{{ page.coords.lng }}&zoom=14&size=800x400&markers={{ page.coords.lat }},{{ page.coords.lng }},ol-marker-blue" class="img-fluid rounded" alt="Térkép: {{ page.title }}" />
+            
+            <!-- Alternative: Google Maps link -->
+            <div class="text-center mt-3">
+                <a href="https://www.google.com/maps?q={{ page.coords.lat }},{{ page.coords.lng }}" target="_blank" class="btn btn-outline-primary">
+                    <i class="fas fa-map-marked-alt me-2"></i> Megnyitás Google Térképen
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Location Description -->
+<section class="py-5">
+    <div class="container">
+        <h3 class="mb-4">Részletes leírás</h3>
+        <div class="row">
+            <div class="col-lg-8">
+                {{ content }}
+            </div>
+            <div class="col-lg-4">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include newsletter.html %}

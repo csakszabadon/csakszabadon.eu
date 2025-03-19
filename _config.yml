@@ -1,0 +1,71 @@
+# Site settings
+title: Magyar Naturizmus
+email: info@csakszabadon.eu
+description: >-
+  Információs oldal a naturizmusról és a magyar naturista helyszínekről, közösségekről.
+baseurl: "" # az aldomained, ha van (pl. /blog)
+url: "" # a domained (pl. https://csakszabadon.eu)
+formspree_id: "" # a formspree form azonosítója
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  blog:
+    output: true
+    permalink: /blog/:slug/
+  helyszin:
+    output: true
+    permalink: /helyszinek/:slug/
+  alapelvek:
+    output: false
+  faq:
+    output: false
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: "blog"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "helyszin"
+    values:
+      layout: "location"
+  -
+    scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      layout: "page"
+      permalink: /:basename/
+  -
+    scope:
+      path: "index.md"
+    values:
+      layout: "home"
+
+# Include files and directories
+include:
+  - _pages
+  - .htaccess
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - README.md

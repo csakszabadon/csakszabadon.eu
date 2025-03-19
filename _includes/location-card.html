@@ -1,0 +1,13 @@
+<div class="card location-card h-100">
+    {% if include.location.image %}
+    <img src="{{ include.location.image }}" class="card-img-top" alt="{{ include.location.title }}">
+    {% else %}
+    <img src="https://picsum.photos/seed/{{ include.location.slug }}/400/300" class="card-img-top" alt="{{ include.location.title }}">
+    {% endif %}
+    <div class="card-body">
+        <div class="location-type">{{ include.location.type | capitalize }}</div>
+        <h5 class="card-title">{{ include.location.title }}</h5>
+        <p class="card-text">{{ include.location.description | truncate: 120 }}</p>
+        <a href="{{ include.location.url }}" class="btn btn-sm btn-outline-primary">Részletek <i class="fas fa-chevron-right"></i></a>
+    </div>
+</div>
