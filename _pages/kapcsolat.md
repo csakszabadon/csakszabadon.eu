@@ -127,4 +127,4 @@ permalink: /kapcsolat/
     </div>
 </section>
 
-{% include newsletter.html %}
+<!-- {% include newsletter.html %} -->
